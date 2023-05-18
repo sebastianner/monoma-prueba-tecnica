@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 type Props = {};
 
-export const NavBar = (props: Props) => {
+const NavBar = (props: Props) => {
   const [toggle, useToggle] = useState<boolean>(false);
 
   function handleClick(): void {
@@ -107,3 +107,5 @@ export const NavBar = (props: Props) => {
     </header>
   );
 };
+
+export default NavBar;

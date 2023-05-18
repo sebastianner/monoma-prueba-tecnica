@@ -1,18 +1,10 @@
-import { redirect } from "next/navigation";
 import type { List } from "@/interfaces/ListCharacters.interface";
 import type { SingleCharacter } from "@/interfaces/SingleCharacer.interface";
 import { NavBar, Card } from "@/components/dashboard";
 
-type Props = {
-  params: { id: number };
-};
-
-export default async function Page({ params }: Props) {
-  if (params.id.toString() === "0") {
-    redirect("/dashboard");
-  }
-
-  const offSet = params.id.toString().concat("0");
+export default async function Page() {
+  //todo suspense loading
+  const offSet = 0;
 
   //todo handle errors
   const get = await fetch(
