@@ -8,6 +8,7 @@ export const LoginForm = () => {
   const [email, setEmail] = useState<string>("");
   const [passw, setPassw] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [showPassw, setShowPassw] = useState<boolean>(false);
 
   function handleChange(
     event: React.ChangeEvent<HTMLInputElement>,
@@ -68,14 +69,25 @@ export const LoginForm = () => {
         >
           Your password
         </label>
-        <input
-          type="password"
-          id="password"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          value={passw}
-          onChange={(e) => handleChange(e, "passw")}
-          required
-        />
+        <div className="flex">
+          <input
+            type={showPassw ? "text" : "password"}
+            id="password"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            value={passw}
+            onChange={(e) => handleChange(e, "passw")}
+            required
+          />
+          <button
+            onClick={() => {
+              setShowPassw(!showPassw);
+            }}
+            type="button"
+            className="text-white"
+          >
+            show pass
+          </button>
+        </div>
       </div>
       {loading && <LoadingIcons.Rings />}
       <button

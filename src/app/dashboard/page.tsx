@@ -1,12 +1,11 @@
 import type { List } from "@/interfaces/ListCharacters.interface";
 import type { SingleCharacter } from "@/interfaces/SingleCharacer.interface";
 import { Card } from "@/components/dashboard";
+import Link from "next/link";
 
 export default async function Page() {
-  //todo suspense loading
   const offset = 0;
 
-  //todo handle errors
   const get = await fetch(`http://localhost:3000/api/list/${offset}`);
   const characters: List = await get.json();
 
@@ -20,13 +19,15 @@ export default async function Page() {
           singleChar?.abilities[1]?.ability?.name,
         ];
         return (
-          <Card
-            image={singleChar.sprites.front_default}
-            name={singleChar.name}
-            weight={singleChar.weight}
-            abilities={abilities}
-            key={index}
-          />
+          <Link href={`/pokemon/${singleChar.id}/`}>
+            <Card
+              image={singleChar.sprites.front_default}
+              name={singleChar.name}
+              weight={singleChar.weight}
+              abilities={abilities}
+              key={index}
+            />
+          </Link>
         );
       })}
     </>

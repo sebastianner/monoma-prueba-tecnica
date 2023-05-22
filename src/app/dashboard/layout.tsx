@@ -1,18 +1,23 @@
 "use client";
+import { useEffect } from "react";
 import { NavBar } from "@/components/dashboard";
 import { redirect } from "next/navigation";
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
-  if (typeof window !== "undefined") {
-    const session = localStorage.getItem("session");
-    if (!session) {
-      redirect("/login");
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const session = localStorage.getItem("session");
+      if (!session) {
+        redirect("/login");
+      }
     }
-  }
+  }, []);
 
   return (
     <>
