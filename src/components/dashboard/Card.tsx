@@ -29,8 +29,11 @@ const Card = ({ image, name, weight, abilities }: Props) => {
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {name}
         </h5>
-        {abilities.map((ability) => (
-          <span className="pr-2 mb-3 font-normal text-gray-700 dark:text-gray-400">
+        {abilities.map((ability, index) => (
+          <span
+            className="pr-2 mb-3 font-normal text-gray-700 dark:text-gray-400"
+            key={index}
+          >
             {ability}
           </span>
         ))}

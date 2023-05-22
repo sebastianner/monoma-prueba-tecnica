@@ -5,13 +5,13 @@ import { useState } from "react";
 import Link from "next/link";
 
 const ProfilePicture = () => {
-  const [toggle, useToggle] = useState<boolean>(false);
+  const [toggle, setToggle] = useState<boolean>(false);
 
-  function handleClick(): void {
-    useToggle(!toggle);
+  function handleClick() {
+    setToggle(!toggle);
   }
 
-  function handleLogout(): void {
+  function handleLogout() {
     localStorage.removeItem("session");
     window.location.replace("/login");
   }
