@@ -34,13 +34,12 @@ export default async function Page({ params }: Props) {
           singleChar?.abilities[1]?.ability?.name,
         ];
         return (
-          <Link href={`/pokemon/${singleChar.id}/`}>
+          <Link href={`/pokemon/${singleChar.id}/`} key={index}>
             <Card
               image={singleChar.sprites.front_default}
               name={singleChar.name}
               weight={singleChar.weight}
               abilities={abilities}
-              key={index}
             />
           </Link>
         );

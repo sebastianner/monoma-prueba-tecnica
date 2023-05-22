@@ -1,18 +1,13 @@
 "use client";
+import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 
-type Props = {};
-
-const ProfilePicture = (props: Props) => {
+const ProfilePicture = () => {
   const [toggle, useToggle] = useState<boolean>(false);
 
   function handleClick(): void {
-    useToggle(!toggle);
-  }
-
-  function handleBlur(): void {
     useToggle(!toggle);
   }
 
