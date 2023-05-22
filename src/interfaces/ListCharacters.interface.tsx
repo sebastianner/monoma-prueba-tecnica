@@ -1,8 +1,12 @@
 export interface List {
+  data: Data;
+}
+
+export interface Data {
+  results: Result[];
   count: number;
   next: string;
   previous: string;
-  results: Result[];
 }
 
 export interface Result {

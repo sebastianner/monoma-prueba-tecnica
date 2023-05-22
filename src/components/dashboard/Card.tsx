@@ -9,7 +9,7 @@ type Props = {
 
 const Card = ({ image, name, weight, abilities }: Props) => {
   return (
-    <div className="w-72 flex flex-col max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="w-72 flex flex-col max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 cursor-pointer">
       <div className="w-full">
         <Image
           src={image}
@@ -17,10 +17,13 @@ const Card = ({ image, name, weight, abilities }: Props) => {
           height={"250"}
           width={"250"}
           className="my-0 mx-auto"
+          placeholder="blur"
+          blurDataURL={image}
+          priority
         />
       </div>
       <span className="self-end mr-5 px-10 py-1 text-sm font-medium text-center text-white rounded-lg dark:bg-blue-600 dark:hover:bg-blue-700 ">
-        Weight: {weight}
+        Weight: {weight} kg
       </span>
       <div className="p-5">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
